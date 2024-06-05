@@ -1,22 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const n = useNavigate();
+  const [valuesUserName, setValuesUserName] = useState('');
+  const [valuesPassword, setValuesPassword] = useState('');
 
-  const [values, setValues] = useState();
-  console.log(values);
+  console.log(valuesUserName);
+  console.log(valuesPassword);
 
-  const handleChangeValues = (value) => {
-    setValues((prevValue) => ({
-      ...prevValue,
-      [value.target.name]: value.target.value,
-    }));
+  const handleChangeValuesUsername = (event) => {
+    setValuesUserName(event.target.value);
   };
 
-  const handleClickButton = () => {
-    console.log(values);
-  }
+  const handleChangeValuesPassword = (event) => {
+    setValuesPassword(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log('valuesUserName', valuesUserName, 'valuesPassword', valuesPassword);
+
+    if (valuesUserName === 'admin' && valuesPassword === 'admin') {
+      console.log('Validei');
+      n('/reservas');
+    } else {
+      console.log('Erro ao efetuar login');
+    }
+  };
 
   return (
     <div className="app--container">
@@ -24,27 +35,25 @@ const Login = () => {
         <h1 className="register--title">Login</h1>
 
         <input
-        type="text"
-        name="email"
-        placeholder="E-mail"
-        className="register--input"
-        onChange={handleChangeValues}
+          type="text"
+          name="email"
+          placeholder="E-mail"
+          className="register--input"
+          onChange={handleChangeValuesUsername}
         />
 
         <input
-        type="text"
-        name="password"
-        placeholder="Senha"
-        className="register--input"
-        onChange={handleChangeValues}
+          type="password"
+          name="password"
+          placeholder="Senha"
+          className="register--input"
+          onChange={handleChangeValuesPassword}
         />
 
-        <button><Link to="/reservas">Entrar</Link></button>
-        
-
+        <button onClick={handleSubmit}>Entrar</button>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

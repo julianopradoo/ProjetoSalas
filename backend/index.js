@@ -36,44 +36,6 @@ app.get("/", (req, res) => {
 //Isso é útil para testar se o servidor está funcionando corretamente e para fornecer uma mensagem inicial para os clientes que acessam seu aplicativo.
 //get é o metodo pegar
 
-app.get("/cadastro", (req, res) => {
-    const q = "SELECT * FROM cadastro"
-    db.query(q, (err,data) => {
-        if(err) return res.json(err)
-        return res.json(data)
-    })
-})
-
-app.post("/cadastro", (req, res)=> {
-    const q = "INSERT INTO cadastro ( `nome_sala`,`foto`, `localizacao`, `dia`, `hora_inicio`, `hora_fim`, `responsavel`, `motivo`, `informacoes`, `convidados`) VAUES (?)"
-    const values = [
-        req.body.nome_sala,
-        req.body.foto,
-        req.body.localizacao,
-        req.body.dia,
-        req.body.hora_inicio,
-        req.body.hora_fim,
-        req.body.responsavel,
-        req.body.motivo,
-        req.body.informacoes,
-        req.body.convidados
-    ];
-
-    db.query(q,[values], (err, data)=> {
-        if(err) return res.json(err);
-        return res.json("cadastro foi criado com sucesso");
-    })
-})
-
-app.delete("/cadastro:id", (req, res) => {
-    const cadastroId = req.params.id;
-    const q = "DELETE FROM cadastro WHERE id = ?";
-    
-    db.query(q, [cadastroId], (err, data) => {
-        if (err) return res.json(err);
-        return res.json("Cadastro deletado com sucesso.")
-    });
-});
 
 app.listen(8800, () => {
     console.log("Conectado ao backend")

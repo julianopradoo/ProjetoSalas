@@ -45,9 +45,9 @@ app.get("/cadastro", (req, res) => {
 })
 
 app.post("/cadastro", (req, res)=> {
-    const q = "INSERT INTO cadastro ( `nome`,`foto`, `localizacao`, `dia`, `hora_inicio`, `hora_fim`, `responsavel`, `motivo`, `informacoes`, `convidados`) VAUES (?)"
+    const q = "INSERT INTO cadastro ( `nome_sala`,`foto`, `localizacao`, `dia`, `hora_inicio`, `hora_fim`, `responsavel`, `motivo`, `informacoes`, `convidados`) VAUES (?)"
     const values = [
-        req.body.nome,
+        req.body.nome_sala,
         req.body.foto,
         req.body.localizacao,
         req.body.dia,

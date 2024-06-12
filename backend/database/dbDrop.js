@@ -1,6 +1,6 @@
-const mysql = require('mysql');
+const mariadb = require('mariadb');
 
-const pool = mysql.createPool({
+const pool = mariadb.createPool({
   host: "localhost",
   user: "root",
   password: "fatec",

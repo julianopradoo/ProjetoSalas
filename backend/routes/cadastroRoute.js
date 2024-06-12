@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const cadastroController = require('../controller/cadastros');
+const cadastroController = require('../controller/cadastro');
 
+// Definição das rotas para cadastro
 router.post('/', async (req, res) => {
     try {
         const newCadastro = await cadastroController.createCadastro(req.body);

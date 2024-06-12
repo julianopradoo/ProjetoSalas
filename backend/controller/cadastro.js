@@ -1,7 +1,6 @@
 const con = require('../database/dbConnection');
 
-// Funções CRUD para reservas
-
+// Funções CRUD para cadastro
 exports.createCadastro = async (cadastroData) => {
     let conn;
     try {
@@ -9,16 +8,17 @@ exports.createCadastro = async (cadastroData) => {
         const query = `
             INSERT INTO cadastro (
                 nome_sala, foto, localizacao, dia, hora_inicio, hora_fim, 
-                responsavel, motivo, informacoes, convidados, 
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, )
+                responsavel, motivo, informacoes, convidados
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
         const values = [
             cadastroData.nome_sala, cadastroData.foto, cadastroData.localizacao, 
             cadastroData.dia, cadastroData.hora_inicio, cadastroData.hora_fim, 
             cadastroData.responsavel, cadastroData.motivo, cadastroData.informacoes, 
-            cadastroData.convidados, 
+            cadastroData.convidados
         ];
         const result = await conn.query(query, values);
+        
         return { id: result.insertId, ...cadastroData };
     } catch (error) {
         throw new Error(error.message);
@@ -48,7 +48,7 @@ exports.getCadastroById = async (cadastroId) => {
         const query = 'SELECT * FROM cadastro WHERE id = ?';
         const rows = await conn.query(query, [cadastroId]);
         if (rows.length === 0) {
-            throw new Error('cadastro não encontrado');
+            throw new Error('Cadastro não encontrado');
         }
         return rows[0];
     } catch (error) {
@@ -62,12 +62,10 @@ exports.updateCadastroById = async (cadastroId, cadastroData) => {
     let conn;
     try {
         conn = await con.getConnection();
-       /*  console.log(cadastroData); */
         const query = `
-            UPDATE produto SET
+            UPDATE cadastro SET
                 nome_sala = ?, foto = ?, localizacao = ?, dia = ?, hora_inicio = ?, 
-                hora_fim = ?, responsavel = ?, motivo = ?, informacoes = ?, 
-                convidados = ?, 
+                hora_fim = ?, responsavel = ?, motivo = ?, informacoes = ?, convidados = ?
             WHERE id = ?
         `;
         const values = [

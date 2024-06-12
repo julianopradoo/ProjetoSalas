@@ -1,12 +1,12 @@
-const mysql = require('mysql');
+const mariadb = require('mariadb');
 const createTableQueries = require('./dbDefault');
 const initialInserts = require('./dbInsert');
 
-const pool = mysql.createPool({
+const pool = mariadb.createPool({
   host: "localhost",
   user: "root",
   password: "fatec",
-  port: 8800,
+  port: 3308,
   connectionLimit: 5
 });
 

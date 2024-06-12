@@ -17,12 +17,12 @@ const Reservas = () => {
   return (
     <div>
     
-    <head className="header">
+    <header className="header">
         <h1>Reservas de sala</h1>
         
-    </head>
+    </header>
     <body>
-        <h1>Reservas</h1>
+       
         <div className="Card">
             <img src="https://fotos.vivadecora.com.br/decoracao-sala-de-estar-studioeloyefreitas-13428-proportional-height_cover_medium.jpg" classname="Img"></img>
             <h1>Nome da sala</h1>

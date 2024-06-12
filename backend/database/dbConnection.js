@@ -1,11 +1,12 @@
-import mysql from "mysql"
+const mariadb = require('mariadb');
 
 
-const db = mysql.createConnection({
+const con = mariadb.createPool({
     host: "localhost",
     user: "root",
     password: "fatec",
-    database: "projetoSalas"
+    database: "projetoSalas",
+    port: "3308"
 })
 // Este trecho de código está criando uma conexão com um banco de dados MySQL utilizando o pacote mysql em Node.js
 // const db: Aqui estamos declarando uma constante chamada db que será usada para representar a conexão com o banco de dados.
@@ -16,4 +17,4 @@ const db = mysql.createConnection({
 //Caso haja algum problema de autenticação
 //ALTER USE 'root'@'localhost' INDENTIFIED WITH mysql_native_password BY 'fatec';
 
-module.exports = db;
+module.exports = con;

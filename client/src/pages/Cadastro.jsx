@@ -40,10 +40,11 @@ const Cadastro = () => {
 
     return (
         <div className= "form"> 
-            <h1>Adicionar Nova Reserva</h1>
-            <input type="text" Placeholder="Nome da Sala" onChange={handleChange} name="nome"/>
-            <input type="text" Placeholder="Local" onChange={handleChange} name="local"/>
-            <input type="text" Placeholder="Data" onChange={handleChange} name="data"/>
+            <h1> Nova Reserva</h1>
+            <input type="text" Placeholder="Nome da Sala" onChange={handleChange} name="nome_sala"/>
+            <input type="text" Placeholder="Link da imagem" onChange={handleChange} name="foto"/>
+            <input type="text" Placeholder="Local" onChange={handleChange} name="localizacao"/>
+            <input type="text" Placeholder="Data" onChange={handleChange} name="dia"/>
             <input type="text" Placeholder="Hora de inicio" onChange={handleChange} name="hora_inicio"/>
             <input type="text" Placeholder="Hora do fim" onChange={handleChange} name="hora_fim"/>
             <input type="text" Placeholder="Responsável" onChange={handleChange} name="responsavel"/>
@@ -56,4 +57,4 @@ const Cadastro = () => {
     )
 }
 
-export default Cadastro
+export default Cadastro;

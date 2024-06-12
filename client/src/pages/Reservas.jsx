@@ -22,7 +22,7 @@ const Reservas = () => {
         
     </head>
     <body>
-        
+        <h1>Reservas</h1>
         <div className="Card">
             <img src="https://fotos.vivadecora.com.br/decoracao-sala-de-estar-studioeloyefreitas-13428-proportional-height_cover_medium.jpg" classname="Img"></img>
             <h1>Nome da sala</h1>

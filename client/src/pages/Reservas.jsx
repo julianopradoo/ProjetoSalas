@@ -1,56 +1,56 @@
-import React from "react"
-import { useEffect } from "react"
-import { useState } from "react"
-import axios from "axios"
-import { Link } from 'react-router-dom'
-
+import React, { useState } from 'react';
+import './Reservas.css';
 
 const Reservas = () => {
-    const [reservas, setReservas] = useState([]);
+  // Definindo estados para os campos do formulário
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
-    useEffect(() => {
-        const fetchAllReservas = async () => {
-            try{
-                const res = await axios.get ("http://localhost:8800/cadastro")
-                setReservas(res.data);
-            }catch (err){
-                console.log(err);
-            }
-        };
-        fetchAllReservas();
-    }, []);
+  // Função para lidar com o envio do formulário
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aqui você pode adicionar a lógica para enviar os dados do formulário para o backend
+    console.log('Dados do formulário:', { nome, email, mensagem });
+  };
 
-    const handleDelete = async (id) => {
-        try{
-            await axios.delete("http://localhost:8800/cadastro" + id)
-            window.location.reload()
-        }catch(err){
-            console.log(err)
-        }
-    }
-
-    return  (
-        <div>
-            <h1>Reservas de Sala</h1>
-            <button><Link to="/cadastro">Adicionar reserva</Link></button>
-            <div className="reservas">
-                {reservas.map((reservas) => (
-                    <div classname="reserva" key={reservas.id}>
-                        {reservas.cover && <img src={reservas.cover} alt="" />}
-                        <h2>{reservas.nome}</h2>
-                        <p>Local: {reservas.local}</p>
-                        <p>Data: {reservas.data}</p>
-                        <p>Inicio: {reservas.hora_inicio}</p>
-                        <p>Fim: {reservas.hora_fim}</p>
-                        <p>Responsável: {reservas.responsavel}</p>
-                        <button className="delete" onClick={() => handleDelete(reservas.id)}>Delete</button>
-                        <button className="update"><Link to={`/update/${reservas.id}`}>Update</Link></button>
-                    </div>
-                ))}
-
-            </div>
+  return (
+    <div>
+    
+    <head className="header">
+        <h1>Reservas de sala</h1>
+        
+    </head>
+    <body>
+        
+        <div className="Card">
+            <img src="https://fotos.vivadecora.com.br/decoracao-sala-de-estar-studioeloyefreitas-13428-proportional-height_cover_medium.jpg" classname="Img"></img>
+            <h1>Nome da sala</h1>
+            <h2>responsavel</h2>
+            <h2>local</h2>
+            <span className="info">data</span>
+            <span className="info">hora_inicio</span>
+            <span className="info">hora_fim</span>
+            <button className="cEditar">Editar</button>
+            <button className="cExcluir">Excluir</button>
         </div>
-    )
+
+        <div className="Card">
+            <img src="https://fotos.vivadecora.com.br/decoracao-sala-de-estar-studioeloyefreitas-13428-proportional-height_cover_medium.jpg" classname="Img"></img>
+            <h1>Nome da sala</h1>
+            <h2>responsavel</h2>
+            <h2>local</h2>
+            <span className="info">data</span>
+            <span className="info">hora_inicio</span>
+            <span className="info">hora_fim</span>
+            <button className="cEditar">Editar</button>
+            <button className="cExcluir">Excluir</button>
+         </div>
+    </body>
+      
+
+    </div>
+  );
 };
 
 export default Reservas;

@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 const Cadastro = () => {
     
     const [cadastro, setCadastro] = useState({
-        nome:"",
+        nome_sala:"",
         foto:"",
-        local:"",
-        data:"",
+        localizacao:"",
+        dia:"",
         hora_inicio:"",
         hora_fim:"",
         responsavel:"",

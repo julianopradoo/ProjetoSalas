@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 16px;
+    font-family: "Arial";
+
+}
+
+.Card {
+    background-color: rgb(224, 209, 209);
+    width: 180px;
+    height: 300px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px #aaa;
+}
+
+.Card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    height: 50%;
+   
+
+}
+
+.Card img {
+    width: 180px;
+    height: 130px;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.Card h1{
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.Card h2{
+    font-size: .9rem;
+    padding: 3px;
+    margin: 4px;
+}
+
+.Card span {
+    padding: 3px;
+    font-size: .8rem;
+    justify-content: space-between;
+    margin: 3px;
+}
+
+.cEditar{
+    background-color: rgb(45, 197, 104);
+    height: 25px;
+    border: none;
+    padding: 2px;
+    margin: 3px;
+    width: 80%;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cExcluir{
+    background-color: red;
+    height: 25px;
+    border: none;
+    padding: 2px;
+    margin: 3px;
+    width: 80%;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}

@@ -13,7 +13,9 @@ const Reservas = () => {
 
     const fetchReservas = async () => {
         try {
-            const res = await axios.get("http://localhost:3000/cadastro");
+            
+            const res = await axios.get("http://34.224.187.147:3000/cadastro");
+            /* const res = await axios.get("http://localhost:3000/cadastro"); */
             setReservas(res.data);
         } catch (err) {
             console.log(err);
@@ -26,7 +28,8 @@ const Reservas = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/cadastro/${id}`);
+            await axios.delete(`http://34.224.187.147:3000/cadastro/${id}`);
+            /* await axios.delete(`http://localhost:3000/cadastro/${id}`); */
             fetchReservas();
         } catch (err) {
             console.log(err);

@@ -30,7 +30,8 @@ const Cadastro = () => {
 
     const fetchCadastroById = async (id) => {
         try {
-            const res = await axios.get(`http://localhost:3000/cadastro/${id}`);
+            const res = await axios.get(`http://34.224.187.147:3000/cadastro/${id}`);
+            /* const res = await axios.get(`http://localhost:3000/cadastro/${id}`); */
             setCadastro(res.data);
             setIsEditing(true);
         } catch (err) {
@@ -50,7 +51,9 @@ const Cadastro = () => {
             return;
         }
         try {
-            await axios.post("http://localhost:3000/cadastro", cadastro);
+    
+            await axios.post("http://34.224.187.147:3000/cadastro", cadastro);
+            /* await axios.post("http://localhost:3000/cadastro", cadastro); */
             alert("Cadastro criado com sucesso!");
             navigate("/reservas");
         } catch (err) {
@@ -66,7 +69,9 @@ const Cadastro = () => {
             return;
         }
         try {
-            await axios.put(`http://localhost:3000/cadastro/${id}`, cadastro);
+            
+            await axios.put(`http://34.224.187.147:3000/cadastro/${id}`, cadastro);
+            /* await axios.put(`http://localhost:3000/cadastro/${id}`, cadastro); */
             alert("Cadastro atualizado com sucesso!");
             navigate("/reservas");
         } catch (err) {
@@ -77,7 +82,9 @@ const Cadastro = () => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:3000/cadastro/${id}`);
+            
+            await axios.delete(`http://34.224.187.147:3000/cadastro/${id}`);
+            /* await axios.delete(`http://localhost:3000/cadastro/${id}`); */
             alert("Cadastro excluído com sucesso!");
             navigate("/reservas");
         } catch (err) {
